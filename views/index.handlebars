@@ -1,0 +1,48 @@
+<h1>Create Your Own Dream Team!</h1>
+
+<div id = "PC">
+
+    <h2>Your PC.</h2>
+    <ul>
+    {{#each team}}
+        {{#unless picked}}
+        {{> team/pokemon-block picked=true}}
+        {{/unless}}
+    {{/each}}
+    </ul>
+
+</div>
+
+<div id = "teamed">
+
+    <h2>Your Team!</h2>
+    <ul>
+    {{#each team}}
+        {{#if picked}}
+        {{> team/pokemon-block picked=false}}
+        {{/if}}
+    {{/each}}
+    </ul>
+
+</div>
+
+<div id = "new">
+
+    <h2>Add a Pokemon</h2>
+    <form class="create-form">
+
+    <div class="form-group">
+        <label for="pk">Pokemon Name:</label>
+        <input type="text" id="pk" name="name">
+    </div>
+    <br>
+    <div class="form-group">
+        <label for="slee">Are they on the team?</label><br><br>
+        <input class="input" type="radio" name="picked" value="1" checked> In the PC<br>
+        <input class="input" type="radio" name="picked" value="0"> On the Team
+    </div>
+    <br>
+    <button type="submit">Add Pokemon</button>
+    </form>
+
+</div>
